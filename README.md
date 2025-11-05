@@ -115,10 +115,10 @@ $$
 
 8. Plotted fitted vs observed curve + L1 error vs t  
 
+---
 
 
-
-How to Run the Code
+▶️ How to Run the Code
 git clone https://github.com/<your-username>/curve-fitting-assignment
 cd curve-fitting-assignment
 pip install -r requirements.txt
