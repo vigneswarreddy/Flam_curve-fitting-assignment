@@ -119,7 +119,12 @@ $$
 
 
 ▶️ How to Run the Code
+
+
 git clone https://github.com/<your-username>/curve-fitting-assignment
+
 cd curve-fitting-assignment
+
 pip install -r requirements.txt
+
 python fit_curve.py
