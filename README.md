@@ -6,30 +6,30 @@ This repository contains my solution to the curve-fitting assignment where the g
 
 ## ✅ Problem Overview
 
-We are given the following parametric curve:
+We are given the following **parametric curve equations**:
 
-\[
+$$
 x(t) = \left( t \cdot \cos(\theta) - e^{M|t|} \cdot \sin(0.3t)\sin(\theta) + X \right)
-\]
+$$
 
-\[
+$$
 y(t) = \left( 42 + t \cdot \sin(\theta) + e^{M|t|} \cdot \sin(0.3t)\cos(\theta) \right)
-\]
+$$
 
 The unknown parameters to estimate are:
 
-\[
+$$
 \theta,\; M,\; X
-\]
+$$
 
-with constraints:
+with the following bounds:
 
 | Parameter | Range |
 |-----------|--------|
-| \(0^\circ < \theta < 50^\circ\) |
-| \(-0.05 < M < 0.05\) |
-| \(0 < X < 100\) |
-| Data sampled over \(6 < t < 60\) |
+| $$0^\circ < \theta < 50^\circ$$ |
+| $$-0.05 < M < 0.05$$ |
+| $$0 < X < 100$$ |
+| Data sampled over: $$6 < t < 60$$ |
 
 Input data file: **`xy_data.csv`**
 
@@ -37,27 +37,37 @@ Input data file: **`xy_data.csv`**
 
 ## 🧠 Final Estimated Parameters
 
-Using constrained optimization (SciPy `least_squares` with soft-L1 loss):
-
-Estimated parameters
-theta = 0.485100 rad  (~ 27.7942 deg)
-M     = 0.020252
-X     = 54.809307
-L1 objective (sum |dx|+|dy|): 37867.660754
+Using constrained optimization (`scipy.optimize.least_squares` with soft-L1 loss), the estimated parameters are:
 
 
-### ✅ Final Parametric Curve (Latex Format — required by assignment)
+θ = 0.485100 rad ≈ 27.7942°
 
-x(t) = ( tcos(0.485100) - e^(0.020252|t|) * sin(0.3t) * sin(0.485100) + 54.809307 )
-y(t) = ( 42 + tsin(0.485100) + e^(0.020252|t|) * sin(0.3t) * cos(0.485100) )
+M = 0.020252
+
+X = 54.809307
+
+L1 objective = 37867.660754
+
 
 
 ---
 
-## 🔍 Desmos Verification (optional but recommended)
+## ✅ Final Parametric Curve (Required LaTeX Submission Format)
 
-🔗 **Live Desmos Graph:** *(replace this placeholder with your link)*  
-`https://www.desmos.com/calculator/XXXXXXXXXX`
+$$
+x(t) = \left( t\cos(0.485100) \;-\; e^{0.020252|t|}\sin(0.3t)\sin(0.485100) \;+\; 54.809307 \right)
+$$
+
+$$
+y(t) = \left( 42 \;+\; t\sin(0.485100) \;+\; e^{0.020252|t|}\sin(0.3t)\cos(0.485100) \right)
+$$
+
+---
+
+## 🔍 Desmos Verification
+
+🔗 *(Replace placeholder with final link)*  
+https://www.desmos.com/calculator/XXXXXXXXXX
 
 ---
 
@@ -68,39 +78,46 @@ y(t) = ( 42 + tsin(0.485100) + e^(0.020252|t|) * sin(0.3t) * cos(0.485100) )
 | Observed data vs fitted curve | `results/fitted_curve.png` |
 | Pointwise L1 error vs t | `results/l1_error_plot.png` |
 
-Example preview:
+✅ Example :
 
-#### ✅ Observed vs Fitted Curve  
-*(insert image in repo)*
+/results/fitted_curve.png
+/results/l1_error_plot.png
 
-#### ✅ L1 Error vs t  
-*(insert image in repo)*
 
 ---
 
-## 🛠️ Method / Approach
+## 🛠️ Method / Approach (Summary)
 
-1. Loaded the observed (x, y) points from `xy_data.csv`
-2. Visualized the data to confirm shape and continuity
-3. Mapped the row index to a parametric value `t ∈ [6, 60]`
-4. Defined `x(t)` and `y(t)` functions in Python using NumPy
-5. Minimized the following L1-based objective:
+1. Loaded the observed `(x, y)` points from `xy_data.csv`
+2. Visualized the dataset to confirm consistency
+3. Mapped data row index → parametric variable `t ∈ [6, 60]`
+4. Implemented the model functions:
 
-\[
-\sum_{i=1}^{N} \left( |x_i - \hat{x_i}| + |y_i - \hat{y_i}| \right)
-\]
+   ```python
+   x(t) = t*cos(theta) - exp(M*abs(t))*sin(0.3*t)*sin(theta) + X
+   y(t) = 42 + t*sin(theta) + exp(M*abs(t))*sin(0.3*t)*cos(theta)
 
-6. Used `scipy.optimize.least_squares` with:
-   - bounded parameters
-   - soft-L1 loss (robust to outliers)
-7. Computed true L1 after optimization
-8. Plotted fitted curve and residuals
+5. **Defined optimization objective**
 
----
+The goal is to minimize the total L1 distance between observed data points \((x_i, y_i)\) and model-predicted points \((\hat{x_i}, \hat{y_i})\):
 
-## ▶️ How to Run the Code
+$$
+\min \sum_{i=1}^{N} \left( |x_i - \hat{x_i}| + |y_i - \hat{y_i}| \right)
+$$
 
-```bash
+6. **Used `least_squares()` with:**
+   - bounded parameters  
+   - soft-L1 loss (robust to outliers)  
+   - numeric gradients  
+
+7. Computed final true L1 score after fitting  
+
+8. Plotted fitted vs observed curve + L1 error vs t  
+
+
+
+
+How to Run the Code
 git clone https://github.com/<your-username>/curve-fitting-assignment
 cd curve-fitting-assignment
 pip install -r requirements.txt
