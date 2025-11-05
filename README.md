@@ -81,7 +81,11 @@ $$
 
 #### 🔹 L1 Error vs t  
 <img src="https://github.com/user-attachments/assets/8990b075-03ea-4f5b-83a1-0528ec7e5260" width="600"/>
+
+
 ---
+
+
 ## 🛠️ Method / Approach (Summary)
 
 1. Loaded the observed `(x, y)` points from `xy_data.csv`
