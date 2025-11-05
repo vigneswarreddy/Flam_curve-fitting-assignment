@@ -74,16 +74,17 @@ https://www.desmos.com/calculator/XXXXXXXXXX
 ## 📊 Results & Visualizations
 
 | Plot | File |
-|-------|------|
-| Observed data vs fitted curve | `results/fitted_curve.png` |
-| Pointwise L1 error vs t | `results/l1_error_plot.png` |
+| Observed data vs fitted curve |<img width="562" height="455" alt="fitted_curve" src="https://github.com/user-attachments/assets/731f7bca-a3d9-4d63-8fbf-3baa2fcdb802" />|
+| Pointwise L1 error vs t | <img width="563" height="455" alt="l1_error_plot" src="https://github.com/user-attachments/assets/855248cb-8576-4755-8e90-388f960d41b2" />|
+
 
 ✅ Example :
 
-/results/fitted_curve.png
-/results/l1_error_plot.png
 
 
+<img width="562" height="455" alt="fitted_curve" src="https://github.com/user-attachments/assets/575688a0-949a-453f-a046-0c6421196a93" />
+
+<img width="563" height="455" alt="l1_error_plot" src="https://github.com/user-attachments/assets/8990b075-03ea-4f5b-83a1-0528ec7e5260" />
 ---
 
 ## 🛠️ Method / Approach (Summary)
@@ -95,6 +96,7 @@ https://www.desmos.com/calculator/XXXXXXXXXX
 
    ```python
    x(t) = t*cos(theta) - exp(M*abs(t))*sin(0.3*t)*sin(theta) + X
+
    y(t) = 42 + t*sin(theta) + exp(M*abs(t))*sin(0.3*t)*cos(theta)
 
 5. **Defined optimization objective**
