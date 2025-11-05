@@ -64,29 +64,24 @@ $$
 
 ---
 
-## 🔍 Desmos Verification
-
-🔗 *(Replace placeholder with final link)*  
-https://www.desmos.com/calculator/XXXXXXXXXX
-
----
 
 ## 📊 Results & Visualizations
 
-| Plot | File |
-| Observed data vs fitted curve |<img width="562" height="455" alt="fitted_curve" src="https://github.com/user-attachments/assets/731f7bca-a3d9-4d63-8fbf-3baa2fcdb802" />|
-| Pointwise L1 error vs t | <img width="563" height="455" alt="l1_error_plot" src="https://github.com/user-attachments/assets/855248cb-8576-4755-8e90-388f960d41b2" />|
+| Plot | Preview |
+|-------|---------|
+| **Observed data vs fitted curve** | <img src="https://github.com/user-attachments/assets/731f7bca-a3d9-4d63-8fbf-3baa2fcdb802" width="400"/> |
+| **Pointwise L1 error vs t** | <img src="https://github.com/user-attachments/assets/855248cb-8576-4755-8e90-388f960d41b2" width="400"/> |
 
-
-✅ Example :
-
-
-
-<img width="562" height="455" alt="fitted_curve" src="https://github.com/user-attachments/assets/575688a0-949a-453f-a046-0c6421196a93" />
-
-<img width="563" height="455" alt="l1_error_plot" src="https://github.com/user-attachments/assets/8990b075-03ea-4f5b-83a1-0528ec7e5260" />
 ---
 
+### ✅ Example Output
+
+#### 🔹 Observed vs Fitted Curve  
+<img src="https://github.com/user-attachments/assets/575688a0-949a-453f-a046-0c6421196a93" width="600"/>
+
+#### 🔹 L1 Error vs t  
+<img src="https://github.com/user-attachments/assets/8990b075-03ea-4f5b-83a1-0528ec7e5260" width="600"/>
+---
 ## 🛠️ Method / Approach (Summary)
 
 1. Loaded the observed `(x, y)` points from `xy_data.csv`
